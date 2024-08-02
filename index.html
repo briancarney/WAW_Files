@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack a Witness</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="score-board">
+            <h1>Whack a Witness!</h1>
+        </div>
+        <div class="buttons">
+            <button id="start-button">Start Game</button>
+            <button id="cancel-button">Cancel</button>
+        </div>
+        <div class="score-results">
+            <p>Score: <span id="score">0</span></p>
+            <p>Time left: <span id="time-left">30</span> seconds</p>
+        </div>
+        <div class="game-content">
+            <div class="grid">
+                <div class="grid-item" id="box0"></div>
+                <div class="grid-item" id="box1"></div>
+                <div class="grid-item" id="box2"></div>
+                <div class="grid-item" id="box3"></div>
+                <div class="grid-item" id="box4"></div>
+                <div class="grid-item" id="box5"></div>
+                <div class="grid-item" id="box6"></div>
+                <div class="grid-item" id="box7"></div>
+                <div class="grid-item" id="box8"></div>
+            </div>
+            <div class="stats">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Image</th>
+                            <th>Successful Clicks</th>
+                            <th>Total Appearances</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="https://imagizer.imageshack.com/img922/8195/5yeUJE.png" alt="Witness" class="table-image"></td>
+                            <td>Witness</td>
+                            <td id="witness-success">0</td>
+                            <td id="witness-appearances">0</td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://imagizer.imageshack.com/img922/2996/aQbq54.png" alt="Prosecutor" class="table-image"></td>
+                            <td>Prosecutor</td>
+                            <td id="prosecutor-success">0</td>
+                            <td id="prosecutor-appearances">0</td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://imagizer.imageshack.com/img923/5731/yz0IlI.png" alt="Defense Attorney" class="table-image"></td>
+                            <td>Defense Attorney</td>
+                            <td id="defense-success">0</td>
+                            <td id="defense-appearances">0</td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://imagizer.imageshack.com/img924/224/Mw5Opc.png" alt="Judge" class="table-image"></td>
+                            <td>Judge</td>
+                            <td id="judge-success">0</td>
+                            <td id="judge-appearances">0</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Total</td>
+                            <td id="total-success">0</td>
+                            <td id="total-appearances">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="game-over" id="game-over">
+            <h2 id="game-over-message">Game Over!</h2>
+            <p>Your Score: <span id="final-score"></span></p>
+        </div>
+        <div class="copyright">
+            <p>© 2024 WIN Interactive, Inc.<br>All rights reserved.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
