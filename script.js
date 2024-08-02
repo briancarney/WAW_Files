@@ -2,7 +2,7 @@ let score = 0;
 let timeUp = false;
 let timer;
 let countdown;
-const scoreBoard = document.getElementById('score');
+const scoreBoard = document.getElementById('score-board');
 const timeLeftDisplay = document.getElementById('time-left');
 const finalScore = document.getElementById('final-score');
 const gameOverScreen = document.getElementById('game-over');
@@ -10,6 +10,7 @@ const gameOverMessage = document.getElementById('game-over-message');
 const boxes = document.querySelectorAll('.grid-item');
 const startButton = document.getElementById('start-button');
 const cancelButton = document.getElementById('cancel-button');
+const progressBar = document.getElementById('progress-bar');
 
 const images = {
     witness: 'https://imagizer.imageshack.com/img922/8195/5yeUJE.png',
@@ -102,7 +103,6 @@ function handleClick(event) {
         }
     }
 
-    scoreBoard.textContent = score;
     updateStats();
 }
 
@@ -146,22 +146,25 @@ function gameOver(message = "Game Over!") {
     finalScore.textContent = score;
     gameOverMessage.textContent = message;
     gameOverScreen.style.display = 'block';
+    scoreBoard.style.display = 'block'; // Show the scoreboard when the game is over
 }
 
 function startGame() {
     score = 0; // Reset score at the start of the game
     timeUp = false;
-    scoreBoard.textContent = score;
+    scoreBoard.style.display = 'none'; // Hide the scoreboard at the start of the game
     timeLeftDisplay.textContent = 30;
     gameOverScreen.style.display = 'none';
     resetBoxStyles(); // Reset box styles at the start of the game
     resetStats(); // Reset stats at the start of the game
+    updateProgressBar(30); // Initialize progress bar
 
     showImage();
     countdown = setInterval(() => {
         let timeLeft = parseInt(timeLeftDisplay.textContent);
         timeLeft--;
         timeLeftDisplay.textContent = timeLeft;
+        updateProgressBar(timeLeft); // Update progress bar
         if (timeLeft <= 0) {
             clearInterval(countdown);
             gameOver("Game Over!");
@@ -171,6 +174,10 @@ function startGame() {
         clearInterval(countdown);
         gameOver("Game Over!");
     }, 30000); // 30 seconds
+}
+
+function updateProgressBar(timeLeft) {
+    progressBar.style.width = `${(timeLeft / 30) * 100}%`;
 }
 
 function cancelGame() {

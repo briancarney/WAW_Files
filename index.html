@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whack a Witness</title>
-    <link rel="stylesheet" href="style.css"> <!-- Corrected to match your uploaded CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="game-container">
-        <div class="score-board">
+        <div class="score-board" id="score-board" style="display: none;">
             <h1>Whack a Witness!</h1>
         </div>
         <div class="buttons">
@@ -18,6 +18,9 @@
         <div class="score-results">
             <p>Score: <span id="score">0</span></p>
             <p>Time left: <span id="time-left">30</span> seconds</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
         </div>
         <div class="game-content">
             <div class="grid">
@@ -87,3 +90,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
