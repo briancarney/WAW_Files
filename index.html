@@ -8,19 +8,15 @@
 </head>
 <body>
     <div class="game-container">
-        <div class="score-board" id="score-board" style="display: none;">
-            <h1>Whack a Witness!</h1>
-        </div>
         <div class="buttons">
             <button id="start-button">Start Game</button>
             <button id="cancel-button">Cancel</button>
         </div>
         <div class="score-results">
-            <p>Score: <span id="score">0</span></p>
-            <p>Time left: <span id="time-left">30</span> seconds</p>
             <div class="progress-container">
                 <div class="progress-bar" id="progress-bar"></div>
             </div>
+            <p>Time left: <span id="time-left">30</span> seconds</p>
         </div>
         <div class="game-content">
             <div class="grid">
@@ -78,6 +74,10 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="score-board" id="score-board" style="display: none;">
+            <h1>Whack a Witness!</h1>
+            <p>Score: <span id="score">0</span></p>
         </div>
         <div class="game-over" id="game-over">
             <h2 id="game-over-message">Game Over!</h2>

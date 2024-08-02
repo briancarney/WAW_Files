@@ -1,29 +1,30 @@
 body {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Changed from center to flex-start */
+    align-items: flex-start;
     min-height: 100vh;
     margin: 0;
-    background: linear-gradient(to bottom, #87CEEB, #4682B4); /* blue gradient */
+    background: linear-gradient(to bottom, #87CEEB, #4682B4);
     font-family: Arial, sans-serif;
-    overflow-y: auto; /* Allow vertical scrolling */
+    overflow-y: auto;
 }
 
 .game-container {
     text-align: center;
     width: 90%;
     max-width: 400px;
-    margin-top: 20px; /* Added margin-top to ensure title is visible */
-    margin-bottom: 60px; /* Ensure space for copyright notice */
+    margin-top: 20px;
+    margin-bottom: 60px;
 }
 
 .score-board {
     margin-bottom: 10px;
+    display: none; /* Hide the scoreboard initially */
 }
 
 .score-board h1 {
     font-family: Verdana, sans-serif;
-    font-size: 24px; /* Adjust font size for better visibility */
+    font-size: 24px;
 }
 
 .buttons {
@@ -38,7 +39,7 @@ button {
 
 .score-results {
     margin-bottom: 10px;
-    font-size: 14px; /* Adjust font size for better visibility */
+    font-size: 14px;
 }
 
 .progress-container {
@@ -80,14 +81,14 @@ button {
     align-items: center;
     border: 2px solid #333;
     position: relative;
-    overflow: hidden; /* Ensure the image doesn't overflow */
-    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for color changes */
+    overflow: hidden;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .grid-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure the image covers the entire grid item */
+    object-fit: cover;
     cursor: pointer;
 }
 
@@ -99,7 +100,7 @@ button {
 .stats table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #f5f5dc; /* light yellowish to beige background */
+    background-color: #f5f5dc;
 }
 
 .stats th, .stats td {
@@ -116,14 +117,14 @@ button {
 .game-over {
     display: none;
     text-align: center;
-    margin-top: 20px; /* Move the game over message below the table */
-    color: white; /* Change text color to white */
+    margin-top: 20px;
+    color: white;
 }
 
 .copyright {
     font-size: 10px;
     margin-top: 20px;
-    text-align: center; /* Ensure it's centered */
+    text-align: center;
 }
 
 @media (max-width: 600px) {
@@ -150,7 +151,6 @@ button {
     }
 }
 
-/* Responsive adjustments for larger screens like iPad */
 @media (min-width: 601px) and (max-width: 1024px) {
     .grid-item {
         width: 70px;
