@@ -11,6 +11,7 @@ const boxes = document.querySelectorAll('.grid-item');
 const startButton = document.getElementById('start-button');
 const cancelButton = document.getElementById('cancel-button');
 const progressBar = document.getElementById('progress-bar');
+const stats = document.getElementById('stats');
 
 const images = {
     witness: 'https://imagizer.imageshack.com/img922/8195/5yeUJE.png',
@@ -22,7 +23,7 @@ const images = {
 let currentBox = null;
 let currentImage = null;
 
-const stats = {
+const statsData = {
     witness: { success: 0, appearances: 0 },
     prosecutor: { success: 0, appearances: 0 },
     defenseAttorney: { success: 0, appearances: 0 },
@@ -68,7 +69,7 @@ function showImage() {
     currentBox.appendChild(img);
     currentBox.addEventListener('click', handleClick);
 
-    stats[currentImage].appearances++;
+    statsData[currentImage].appearances++;
     updateStats();
 
     setTimeout(showImage, 1000);
@@ -80,10 +81,10 @@ function handleClick(event) {
     if (clickedImage === '5yeUJE') {
         currentBox.style.backgroundColor = 'lime'; // Neon green color code
         setTimeout(() => resetBoxStyles(), 2000); // Stay green for 2 seconds
-        stats.witness.success++;
+        statsData.witness.success++;
         score += 2;
     } else if (clickedImage === 'Mw5Opc') {
-        stats.judge.appearances++; // Increase the judge appearance count
+        statsData.judge.appearances++; // Increase the judge appearance count
         updateStats(); // Update the stats before ending the game
         currentBox.style.borderColor = 'red';
         currentBox.style.borderWidth = '3px';
@@ -95,10 +96,10 @@ function handleClick(event) {
         currentBox.style.borderWidth = '3px';
         setTimeout(() => resetBoxStyles(), 1000); // Stay yellow for 1 second
         if (clickedImage === 'aQbq54') {
-            stats.prosecutor.success++;
+            statsData.prosecutor.success++;
             score += 1;
         } else if (clickedImage === 'yz0IlI') {
-            stats.defenseAttorney.success++;
+            statsData.defenseAttorney.success++;
             score += 1;
         }
     }
@@ -107,31 +108,31 @@ function handleClick(event) {
 }
 
 function updateStats() {
-    document.getElementById('witness-success').textContent = stats.witness.success;
-    document.getElementById('witness-appearances').textContent = stats.witness.appearances;
-    document.getElementById('prosecutor-success').textContent = stats.prosecutor.success;
-    document.getElementById('prosecutor-appearances').textContent = stats.prosecutor.appearances;
-    document.getElementById('defense-success').textContent = stats.defenseAttorney.success;
-    document.getElementById('defense-appearances').textContent = stats.defenseAttorney.appearances;
-    document.getElementById('judge-success').textContent = stats.judge.success;
-    document.getElementById('judge-appearances').textContent = stats.judge.appearances;
+    document.getElementById('witness-success').textContent = statsData.witness.success;
+    document.getElementById('witness-appearances').textContent = statsData.witness.appearances;
+    document.getElementById('prosecutor-success').textContent = statsData.prosecutor.success;
+    document.getElementById('prosecutor-appearances').textContent = statsData.prosecutor.appearances;
+    document.getElementById('defense-success').textContent = statsData.defenseAttorney.success;
+    document.getElementById('defense-appearances').textContent = statsData.defenseAttorney.appearances;
+    document.getElementById('judge-success').textContent = statsData.judge.success;
+    document.getElementById('judge-appearances').textContent = statsData.judge.appearances;
 
-    const totalSuccess = stats.witness.success + stats.prosecutor.success + stats.defenseAttorney.success;
-    const totalAppearances = stats.witness.appearances + stats.prosecutor.appearances + stats.defenseAttorney.appearances + stats.judge.appearances;
+    const totalSuccess = statsData.witness.success + statsData.prosecutor.success + statsData.defenseAttorney.success;
+    const totalAppearances = statsData.witness.appearances + statsData.prosecutor.appearances + statsData.defenseAttorney.appearances + statsData.judge.appearances;
 
     document.getElementById('total-success').textContent = totalSuccess;
     document.getElementById('total-appearances').textContent = totalAppearances;
 }
 
 function resetStats() {
-    stats.witness.success = 0;
-    stats.witness.appearances = 0;
-    stats.prosecutor.success = 0;
-    stats.prosecutor.appearances = 0;
-    stats.defenseAttorney.success = 0;
-    stats.defenseAttorney.appearances = 0;
-    stats.judge.success = 0;
-    stats.judge.appearances = 0;
+    statsData.witness.success = 0;
+    statsData.witness.appearances = 0;
+    statsData.prosecutor.success = 0;
+    statsData.prosecutor.appearances = 0;
+    statsData.defenseAttorney.success = 0;
+    statsData.defenseAttorney.appearances = 0;
+    statsData.judge.success = 0;
+    statsData.judge.appearances = 0;
     updateStats();
 }
 
@@ -147,12 +148,14 @@ function gameOver(message = "Game Over!") {
     gameOverMessage.textContent = message;
     gameOverScreen.style.display = 'block';
     scoreBoard.style.display = 'block'; // Show the scoreboard when the game is over
+    stats.style.display = 'block'; // Show the stats table when the game is over
 }
 
 function startGame() {
     score = 0; // Reset score at the start of the game
     timeUp = false;
     scoreBoard.style.display = 'none'; // Hide the scoreboard at the start of the game
+    stats.style.display = 'none'; // Hide the stats table at the start of the game
     timeLeftDisplay.textContent = 30;
     gameOverScreen.style.display = 'none';
     resetBoxStyles(); // Reset box styles at the start of the game

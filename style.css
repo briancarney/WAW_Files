@@ -19,7 +19,6 @@ body {
 
 .score-board {
     margin-bottom: 10px;
-    display: none; /* Hide the scoreboard initially */
 }
 
 .score-board h1 {
@@ -95,6 +94,7 @@ button {
 .stats {
     width: 100%;
     margin-bottom: 10px;
+    display: none; /* Hide the stats table initially */
 }
 
 .stats table {

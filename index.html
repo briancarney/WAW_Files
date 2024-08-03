@@ -8,6 +8,9 @@
 </head>
 <body>
     <div class="game-container">
+        <div class="score-board" id="score-board">
+            <h1>Whack a Witness!</h1>
+        </div>
         <div class="buttons">
             <button id="start-button">Start Game</button>
             <button id="cancel-button">Cancel</button>
@@ -30,7 +33,7 @@
                 <div class="grid-item" id="box7"></div>
                 <div class="grid-item" id="box8"></div>
             </div>
-            <div class="stats">
+            <div class="stats" id="stats" style="display: none;">
                 <table>
                     <thead>
                         <tr>
@@ -74,10 +77,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="score-board" id="score-board" style="display: none;">
-            <h1>Whack a Witness!</h1>
-            <p>Score: <span id="score">0</span></p>
         </div>
         <div class="game-over" id="game-over">
             <h2 id="game-over-message">Game Over!</h2>
